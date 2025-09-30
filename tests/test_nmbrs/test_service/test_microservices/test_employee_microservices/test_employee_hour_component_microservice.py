@@ -51,8 +51,8 @@ class TestEmployeeHourComponentFixedService(unittest.TestCase):
         """Test the get_current_fixed method of EmployeeHourComponentFixedService."""
         employee_id = 123
         expected_hour_components = [
-            {"Id": 1, "Name": "Overtime", "Amount": 10, "Date": datetime(2023, 1, 1)},
-            {"Id": 2, "Name": "Bonus", "Amount": 20, "Date": datetime(2023, 1, 5)},
+            {"Id": 1, "HourCode": 3756, "Hours": -32.00},
+            {"Id": 2, "HourCode": 3757, "Hours": 32.00},    
         ]
         self.client.service.HourComponentFixed_GetCurrent.return_value = expected_hour_components
 
@@ -93,8 +93,8 @@ class TestEmployeeHourComponentFixedService(unittest.TestCase):
         """Test the get_current_variable method of EmployeeHourComponentFixedService."""
         employee_id = 123
         expected_hour_components = [
-            {"Id": 1, "Name": "Overtime", "Amount": 10, "Date": datetime(2023, 1, 1)},
-            {"Id": 2, "Name": "Bonus", "Amount": 20, "Date": datetime(2023, 1, 5)},
+            {"Id": 1, "HourCode": 3756, "Hours": -32.00},
+            {"Id": 2, "HourCode": 3757, "Hours": 32.00},    
         ]
         self.client.service.HourComponentVar_GetCurrent.return_value = expected_hour_components
 

@@ -53,6 +53,10 @@ class EmployeeHourComponentFixedService(MicroService):
         hour_components = self.client.service.HourComponentFixed_GetCurrent(
             EmployeeId=employee_id, _soapheaders=self.auth_manager.header
         )
+
+        if hour_components is None:
+            return []
+
         return [HourComponent(employee_id=employee_id, data=hour_component) for hour_component in serialize_object(hour_components)]
 
     @nmbrs_exception_handler(resource="EmployeeService:HourComponentFixed_Insert")
@@ -141,6 +145,10 @@ class EmployeeHourComponentFixedService(MicroService):
         hour_components = self.client.service.HourComponentVar_GetCurrent(
             EmployeeId=employee_id, _soapheaders=self.auth_manager.header
         )
+
+        if hour_components is None:
+            return []
+
         return [HourComponent(employee_id=employee_id, data=hour_component) for hour_component in serialize_object(hour_components)]
 
     @nmbrs_exception_handler(resource="EmployeeService:HourComponentVar_Insert")
